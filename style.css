@@ -104,6 +104,8 @@ h4 {
   width: 100%;       /* Mengikuti lebar kartu */
   height: 100%;      /* Mengikuti tinggi kartu */
   object-fit: cover; /* Agar gambar tidak gepeng tapi tetap memenuhi kotak */
+  object-fit: contain; /* Gunakan 'contain' jika ingin seluruh badan kucing terlihat */
+  background-color: #fff; /* Warna putih untuk mengisi ruang kosong di pinggir */
 }
 
 .card:hover .imgBox {
@@ -123,7 +125,13 @@ h4 {
   box-sizing: border-box;
   padding: 0 0 0 10px;
   z-index: -1;
-  margin-top: 20px;
+  margin-top: 30px; /* Tulisan naik sesuai request */
+  opacity: 0; /* Tersembunyi di awal */
+  transition: opacity 1s;
+}
+
+.card.open .details, .card:hover .details {
+  opacity: 1; /* Muncul pas kartu terbuka */
 }
 
 .card .details p {
@@ -140,3 +148,4 @@ h4 {
 .text-right {
   text-align: right;
 }
+
